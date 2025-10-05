@@ -13,10 +13,66 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    alert("상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.");
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch(
+        "https://api.terracelab.co.kr/api/sellobal/contact/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...formData,
+            sourceUrl: window.location.href,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message:
+            "상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.",
+        });
+        // Reset form
+        setFormData({
+          company: "",
+          name: "",
+          phone: "",
+          email: "",
+          products: "",
+          monthlyRevenue: "",
+          message: "",
+        });
+      } else {
+        const errorData = await response.json();
+        setSubmitStatus({
+          type: "error",
+          message:
+            errorData.message ||
+            "상담 신청 중 오류가 발생했습니다. 다시 시도해주세요.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message:
+          "네트워크 오류가 발생했습니다. 인터넷 연결을 확인하고 다시 시도해주세요.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -164,14 +220,34 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="w-full button-accent text-lg py-4 justify-center"
+                disabled={isSubmitting}
+                className="w-full button-accent text-lg py-4 justify-center disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                무료 상담 신청하기
+                {isSubmitting ? "전송 중..." : "무료 상담 신청하기"}
               </button>
 
-              <p className="text-sm text-neutral-500 text-center">
-                상담 신청 후 1-2일 내에 전담 컨설턴트가 연락드립니다.
-              </p>
+              {submitStatus.type === "success" && (
+                <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-sm text-green-800 text-center flex items-center justify-center gap-2">
+                    <CheckCircle size={16} />
+                    {submitStatus.message}
+                  </p>
+                </div>
+              )}
+
+              {submitStatus.type === "error" && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <p className="text-sm text-red-800 text-center">
+                    {submitStatus.message}
+                  </p>
+                </div>
+              )}
+
+              {!submitStatus.type && (
+                <p className="text-sm text-neutral-500 text-center">
+                  상담 신청 후 1-2일 내에 전담 컨설턴트가 연락드립니다.
+                </p>
+              )}
             </form>
           </div>
 
