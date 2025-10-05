@@ -40,6 +40,7 @@ export function Contact() {
       );
 
       if (response.ok) {
+        alert("상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.");
         setSubmitStatus({
           type: "success",
           message:
