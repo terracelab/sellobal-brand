@@ -1,0 +1,410 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand — Ink (primary) */
+  --brand-ink-900: #0B0F14; /* Near-Black */
+  --brand-ink-800: #111827;
+  --brand-ink-700: #1F2937; /* Charcoal */
+  --brand-ink-600: #374151;
+
+  /* Brand — Blue (accent) */
+  --brand-blue-50:  #EFF6FF;
+  --brand-blue-100: #DBEAFE;
+  --brand-blue-200: #BFDBFE;
+  --brand-blue-300: #93C5FD;
+  --brand-blue-400: #60A5FA;
+  --brand-blue-500: #2563EB; /* Accent */
+  --brand-blue-600: #1D4ED8;
+  --brand-blue-700: #1E40AF;
+  --brand-blue-800: #1E3A8A;
+  --brand-blue-900: #1E3A8A;
+
+  /* Neutrals — Warm (Stone) */
+  --neutral-50:  #FAFAF9;
+  --neutral-100: #F5F5F4; /* Background (Light) */
+  --neutral-200: #E7E5E4;
+  --neutral-300: #D6D3D1;
+  --neutral-400: #A8A29E;
+  --neutral-500: #78716C;
+  --neutral-600: #57534E;
+  --neutral-700: #44403C;
+  --neutral-800: #292524;
+  --neutral-900: #1C1917;
+
+  /* Core Surface & Text (Light) */
+  --color-bg: var(--neutral-100);
+  --color-surface: #FFFFFF;
+  --color-surface-2: var(--neutral-50);
+  --color-border: var(--neutral-300);
+  --color-divider: rgba(12, 14, 16, 0.08);
+
+  --color-text-primary: var(--brand-ink-900);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-tertiary: var(--neutral-500);
+  --color-text-inverse: #F9FAFB;
+  --color-text-accent: var(--brand-blue-600);
+
+  /* Brand Intents */
+  --color-primary: var(--brand-ink-900);           /* Primary actions (Light) */
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: var(--brand-blue-500);           /* CTAs / Highlights */
+  --color-accent-contrast: #FFFFFF;
+  --color-link: var(--brand-blue-600);
+  --color-link-hover: var(--brand-blue-700);
+
+  /* Semantic */
+  --success-100: #E8F5ED;
+  --success-500: #16A34A;
+  --success-700: #15803D;
+
+  --warning-100: #FFF7E6;
+  --warning-500: #D97706;
+  --warning-700: #B45309;
+
+  --error-100: #FDECEC;
+  --error-500: #DC2626;
+  --error-700: #B91C1C;
+
+  --info-100: #E7F2FF;
+  --info-500: #2563EB;
+  --info-700: #1D4ED8;
+
+  /* Focus & Overlays */
+  --focus-color: rgba(37, 99, 235, 0.55); /* Blue */
+  --overlay-1: rgba(11, 15, 20, 0.30);
+  --overlay-2: rgba(11, 15, 20, 0.55);
+
+  /* Typography */
+  --font-sans: "Pretendard Variable", "Noto Sans KR", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans", "Malgun Gothic", sans-serif;
+  --font-serif: "Nanum Myeongjo", "Noto Serif KR", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --text-xxl: clamp(28px, 3.4vw, 48px);
+  --text-xl: 24px;
+  --text-lg: 18px;
+  --text-md: 16px;
+  --text-sm: 14px;
+  --text-xs: 12px;
+
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+  --line-relaxed: 1.7;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing (4px grid) */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii (soft, premium) */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 6px 16px rgba(0,0,0,0.12);
+  --shadow-lg: 0 12px 28px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+
+  /* Gradients */
+  --gradient-blue-sheen: linear-gradient(180deg, #60A5FA 0%, #2563EB 60%, #1D4ED8 100%);
+  --gradient-ink: linear-gradient(180deg, #111827 0%, #0B0F14 100%);
+
+  /* Tailwind compatibility */
+  --font-size: 16px;
+  --background: var(--color-bg);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-primary-contrast);
+  --secondary: var(--neutral-50);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-accent-contrast);
+  --destructive: var(--error-500);
+  --destructive-foreground: #ffffff;
+  --border: var(--color-border);
+  --input: transparent;
+  --input-background: var(--color-surface);
+  --switch-background: var(--neutral-400);
+  --font-weight-medium: var(--weight-medium);
+  --font-weight-normal: var(--weight-regular);
+  --ring: var(--focus-color);
+  --chart-1: var(--brand-blue-500);
+  --chart-2: var(--brand-ink-600);
+  --chart-3: var(--neutral-600);
+  --chart-4: var(--brand-blue-300);
+  --chart-5: var(--brand-ink-700);
+  --radius: var(--radius-md);
+  --sidebar: var(--color-surface);
+  --sidebar-foreground: var(--color-text-primary);
+  --sidebar-primary: var(--color-primary);
+  --sidebar-primary-foreground: var(--color-primary-contrast);
+  --sidebar-accent: var(--neutral-50);
+  --sidebar-accent-foreground: var(--color-text-primary);
+  --sidebar-border: var(--color-border);
+  --sidebar-ring: var(--focus-color);
+}
+
+/* Dark Theme Override — add class "theme-dark" to :root or body */
+.dark, .theme-dark {
+  --color-bg: var(--brand-ink-900);
+  --color-surface: var(--brand-ink-800);
+  --color-surface-2: #0E1319;
+  --color-border: var(--brand-ink-700);
+  --color-divider: rgba(250, 250, 249, 0.08);
+
+  --color-text-primary: #E5E7EB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
+  --color-text-inverse: var(--brand-ink-900);
+
+  --color-primary: var(--brand-blue-500);          /* Primary actions (Dark) */
+  --color-primary-contrast: #FFFFFF;
+  --color-accent: var(--brand-blue-500);
+  --color-accent-contrast: #FFFFFF;
+
+  --color-link: #60A5FA;
+  --color-link-hover: #93C5FD;
+
+  /* Tailwind compatibility for dark mode */
+  --background: var(--brand-ink-900);
+  --foreground: #E5E7EB;
+  --card: var(--brand-ink-800);
+  --card-foreground: #E5E7EB;
+  --popover: var(--brand-ink-800);
+  --popover-foreground: #E5E7EB;
+  --primary: var(--brand-blue-500);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--brand-ink-700);
+  --secondary-foreground: #E5E7EB;
+  --muted: var(--brand-ink-700);
+  --muted-foreground: #9CA3AF;
+  --accent: var(--brand-blue-500);
+  --accent-foreground: #FFFFFF;
+  --border: var(--brand-ink-700);
+  --input: var(--brand-ink-700);
+  --ring: var(--focus-color);
+  --sidebar: var(--brand-ink-800);
+  --sidebar-foreground: #E5E7EB;
+  --sidebar-primary: var(--brand-blue-500);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--brand-ink-700);
+  --sidebar-accent-foreground: #E5E7EB;
+  --sidebar-border: var(--brand-ink-700);
+  --sidebar-ring: var(--focus-color);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-xxl);
+      font-weight: var(--weight-bold);
+      line-height: var(--line-tight);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      line-height: var(--line-tight);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-medium);
+      line-height: var(--line-normal);
+    }
+
+    h4 {
+      font-size: var(--text-md);
+      font-weight: var(--weight-medium);
+      line-height: var(--line-normal);
+    }
+
+    p {
+      font-size: var(--text-md);
+      font-weight: var(--weight-regular);
+      line-height: var(--line-normal);
+    }
+
+    label {
+      font-size: var(--text-md);
+      font-weight: var(--weight-medium);
+      line-height: var(--line-normal);
+    }
+
+    button {
+      font-size: var(--text-md);
+      font-weight: var(--weight-medium);
+      line-height: var(--line-normal);
+    }
+
+    input {
+      font-size: var(--text-md);
+      font-weight: var(--weight-regular);
+      line-height: var(--line-normal);
+    }
+
+    .text-sm {
+      font-size: var(--text-sm);
+      line-height: var(--line-relaxed);
+      color: var(--color-text-secondary);
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-sans);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom button styles */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-base) var(--ease-standard);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+}
+.button-primary:hover { 
+  box-shadow: var(--shadow-md); 
+  transform: translateY(-1px); 
+  color: var(--color-primary-contrast);
+}
+
+.button-accent {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px;
+  padding: 12px 16px; 
+  border-radius: var(--radius-sm);
+  background: var(--gradient-blue-sheen);
+  color: var(--color-accent-contrast);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  box-shadow: var(--shadow-sm);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: all var(--duration-base) var(--ease-standard);
+}
+.button-accent:hover { 
+  box-shadow: var(--shadow-md); 
+  transform: translateY(-1px);
+  color: var(--color-accent-contrast);
+}
+
+/* Custom card styles */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-standard);
+}
+a:hover { 
+  color: var(--color-link-hover); 
+}
